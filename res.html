@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src=http://cdn.pubnub.com/pubnub.min.js ></script>
+     <script>(function(){
+         var pubnub = PUBNUB.init({
+             publish_key   : 'pub-c-ef715ccb-68fa-4f79-98b8-8b7d48f35958',
+             subscribe_key : 'sub-c-217854ce-0f94-11e4-9284-02ee2ddab7fe'
+         })
+
+         pubnub.subscribe({
+             channel : "das_res",
+             message : function(m){
+                alert(JSON.stringify(m))
+              },
+             //connect : publish
+         })
+         alert("i");
+     })();</script>
+</head>
+<body>
+</body>
+</html>

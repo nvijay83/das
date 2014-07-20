@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Landing Page Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap_v1.css" rel="stylesheet">
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+
+
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+
+<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+
+<script src="js/handlebars-v1.3.0.js"></script>
+
+
+
+<script type="text/javascript" src="js/jscart.js"></script>
+
+<style>
+body {
+	background: url('');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #000000;
+}
+
+.btn-default,.btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary
+	{
+	color: #ffffff;
+	border-color: #FFFFFF;
+	padding: 10px;
+	background-color: #526907;
+}
+
+h2,h3 {
+	color: #000;
+}
+
+h4,h5 {
+	color: #000;
+}
+
+.bg {
+	border-radius: 15px;
+	background-color: #f2f2f2;
+	margin-bottom: 5%;
+}
+
+.bg1 {
+	border-radius: 15px;
+	background-color: #f2f2f2;
+	margin-bottom: 10%;
+}
+
+span {
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 20px;
+	color: #000;
+}
+
+.simpleCart_empty {
+	color: rgb(85, 3, 3);
+	font-size: 20px;
+}
+
+.itemName {
+	padding: 5px;
+	margin: 5px;
+	margin-bottom: 5px;
+	font-size: 20px;
+	color: #E26767;
+}
+
+hr {
+	color: #000;
+}
+
+a {
+	color: #000;
+}
+
+label {
+	color: #000;
+}
+
+.item_name {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+
+select {
+	margin: 3px;
+}
+
+.simpleCart_shelfItem {
+	margin-bottom: 5px;
+}
+
+.itemPrice {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+.itemQuantity {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+.itemTotal {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+regbutton {
+	margin: 2%;
+}
+
+signinbutton {
+	margin: 2%;
+}
+
+.itemdecrement {
+	color: #000;
+}
+
+a,a:hover {
+	color: #000;
+}
+
+.navbar-inverse {
+	border-color: white;
+	background-image: url('/images/gradient_header.png');
+    background-repeat: repeat-x;
+	
+}
+
+.nav {
+	margin-top: 5px;
+	/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+}
+
+</style>
+<script type="text/javascript">
+	simpleCart.cartHeaders = [ "Name", "Price", "Quantity", "Total",
+			"decrement_noHeader", "increment_noHeader", "remove_noHeader" ];
+</script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only"> Toggle navigation </span> <span
+						class="icon-bar"> </span> <span class="icon-bar"> </span> <span
+						class="icon-bar"> </span>
+				</button>
+				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+				<a class="navbar-brand logo-nav" href="index.html"> <img
+					src="images/FINAL_image1.png" class=""
+					style="width: 100px; height: 50px;">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav navbar-right" id="loginmenu">
+					<li><a href="#" data-toggle="modal" data-target="#myModal">How
+							it Works?</a></li>
+					<li><button type="button" class="btn btn-primary">
+							<a href="/restaurantui.html">Restaurants</a>
+						</button>
+					<li><a href="/profile.html">Create Account</a></li>
+
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+
+
+	<div class="container" id="confirmation">
+
+
+		<div class="row">
+
+			<h2 id="confirmationheader">Confirm your Order</h2>
+
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="row bg" id="checkoutcontainer">
+
+
+			<div class="col-lg-12 col-xs-12" id="checkout">
+				<div class="simpleCart_items"></div>
+
+			</div>
+
+		</div>
+	</div>
+
+	
+
+	
+
+	<div class="container">
+
+
+		<div class="row">
+
+			<h3 id="foodconfirmationheader">Deliver Food to below Address:</h3>
+
+		</div>
+	</div>
+
+
+	<div class="container bg">
+
+		<div class="row">
+
+			<div class="col-lg-8 col-xs-12 text-center" id="shipmentdetails">
+
+				<script id="shiptotemplate" type="text/x-handlebars-template">
+
+					<div class="col-lg-6 col-xs-12" style="padding:50px;">
+
+						<h4>{{address1}}</h4>
+						<h4>{{address2}}</h4>
+						<h4>{{city}}</h4>
+						<h4>{{landmark}}</h4>
+
+					</div>
+
+
+					<div class="col-lg-4 col-xs-12" style="padding:50px;">
+
+					<h5>{{email}}</h5>
+					<h5>{{contactnumber}}</h5>
+
+					</div>
+
+			</script>
+
+
+			</div>
+
+
+			<div class="col-lg-4 col-xs-12 text-center" id="summary">
+				<hr>
+				Cart: <span class="simpleCart_total text-center"></span> ( <span
+					class="simpleCart_quantity"></span> items) <br />
+
+
+				<br /> Delivery: <span class="simpleCart_shippingCost text-center"></span>
+				<br />
+				<br /> Delivery Distance: <span class="simpleCart_shippingDistance text-center"></span>
+				<br />
+				
+				<br /> <br> <a href="javascript:;" class="simpleCart_empty">Empty
+					Cart</a><br>
+
+				<hr>
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+	<div id='spinner' class='spinner'></div>
+
+
+	<div class="container">
+
+
+		<div class="col-lg-6">
+			<div class="col-lg-offset-4 col-lg-8 col-xs-12">
+
+				<button type="submit" id="editaddressbutton"
+					class="btn btn-primary btn-lg active col-lg-12 col-xs-12 bg"
+					id="search">Change Delivery Address</button>
+
+			</div>
+
+		</div>
+
+		<div class="col-lg-6">
+
+			<div class="col-lg-offset-4 col-lg-8 col-xs-12">
+
+				<button type="submit" id="orderbutton"
+					class="btn btn-primary btn-lg active col-lg-12 col-xs-12 bg">Place
+					My Order</button>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="modal fade" id="myModal" tabindex="-10000">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+
+						<div class="modal-body">
+
+							<img src="" class="img-responsive">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+					    <h4>About Ontime </h4>
+					    <p>	
+							Online food delivery service. Our delivery crowd source deliver to your doorstep in any of our delivery regions.
+						</p>
+				
+					<p>Copyright © Company 2014</p>
+					</div>
+				</div>	
+	</footer>
+
+
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/checkout.js"></script>
+
+	<script>
+		var delete_cookie = function(name) {
+			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		};
+
+		var loggedin = getCookie('esfuuid');
+
+		if (loggedin != null) {
+			$('#loginmenu').append(
+					'<li><a href="/index.html" id="logout">Logout</a></li>');
+
+		} else {
+
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+
+		}
+
+		$('a[href="/index.html"]').click(function() {
+			delete_cookie('esfuuid');
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 300px }
+      body { height:300px; margin: 0; padding: 0 }
+      #map-canvas { height: 300px }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?sensor=true&v=3.14">
+    </script>
+    <script type="text/javascript">
+    
+     var contentString1 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Walmart</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>spend 1 and get 1 free</b></p>'+
+      '<p><a href="http://www.walmart.com/">'+
+      'Click here to enroll</a></p>'+
+      '</div>'+
+      '</div>';
+      
+      var contentString2 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Starbucks</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>spend $20 and get $5 discount</b></p>'+
+      '<p><a href="http://www.starbucks.com">'+
+      'Click here to enroll </a></p>'+
+      '</div>'+
+      '</div>';
+      
+      var contentString3 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Jcrew</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>spend 1 and get 1 free</b></p>'+
+      '<p>Jcrew, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'Click here to enroll</a></p>'+
+      '</div>'+
+      '</div>';
+      
+      var contentString4 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Flowers</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>spend 1 and get 1 free</b></p>'+
+      '<p>Flowers, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'Click here to enroll</a></p>'+
+      '</div>'+
+      '</div>';
+      
+      var contentString5 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">costco</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>spend 1 and get 1 free</b></p>'+
+      '<p><a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'Click here to enroll</a></p>'+
+      '</div>'+
+      '</div>';
+    
+var markers = [
+	['Walmart',contentString1, 33.6407431,-112.0012776],
+	['Starbucks',contentString2, 33.626033,-112.023666],
+	['Jcrew',contentString3, 33.6280477,-112.0313596],
+	['Flowers',contentString4, 33.6449989,-112.0305255],
+	['costco',contentString5, 33.585389,-112.011788]
+];
+
+      function initialize() {
+      	var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+        var mapOptions = {
+          //center: myLatlng,
+          zoom: 16,
+          //mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      
+  	 	var infowindow = new google.maps.InfoWindow(); 
+		var marker, i;
+		var bounds = new google.maps.LatLngBounds();
+      
+      for (i = 0; i < markers.length; i++) { 
+		var pos = new google.maps.LatLng(markers[i][2], markers[i][3]);
+		bounds.extend(pos);
+		marker = new google.maps.Marker({
+			position: pos,
+			map: map,
+			title: markers[i][0]
+		});
+		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		
+			return function() {
+			
+				infowindow.setContent(markers[i][1]);
+				infowindow.open(map, marker);
+			};
+		})(marker, i));
+	}
+      
+	map.fitBounds(bounds);
+  
+ }
+  google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas">check</div>
+  </body>
+</html>

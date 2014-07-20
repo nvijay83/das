@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ontime Delivery Service</title>
+
+<!-- Bootstrap core CSS -->
+<!-- <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+ -->
+
+
+<!-- <!-- Bootstrap core CSS -->
+<link href="css/bootstrap_v1.css" rel="stylesheet">
+
+<!-- 
+<link href="css/bootstrap.min_v1.css" rel="stylesheet">
+ -->
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+
+
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="js/jscart.js"></script>
+
+
+<script src="js/handlebars-v1.3.0.js"></script>
+
+<script src="js/order.js"></script>
+
+
+<style>
+a {
+	color: #000;
+}
+
+body {
+	background: url('');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #000;
+}
+
+h3,h4,h5 {
+	color: #000;
+}
+
+.btn-default,.btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary
+	{
+	color: #ffffff;
+	background-color: #526907;
+	border-color: #FFFFFF;
+}
+
+span {
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 20px;
+	color: #000;
+}
+
+.simpleCart_empty {
+	color: rgb(85, 3, 3);
+	font-size: 20px;
+}
+
+.itemName {
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 20px;
+	color: #E26767;
+}
+
+.item_name {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+
+.simpleCart_shelfItem {
+	margin-top: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.itemPrice {
+	margin-top: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.itemQuantity {
+	margin-top: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+	color: #000;
+}
+
+.itemTotal {
+	margin-top: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+	color: #000;
+}
+
+.bg {
+	border-radius: 15px;
+	background-color: #f2f2f2;
+	margin-bottom: 5%;
+}
+
+h4 {
+	overflow: hidden;
+	font-size: 1.0em;
+}
+
+.nav {
+	margin-top: 28px;
+	/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+}
+
+ul {
+	list-style-type: none;
+}
+
+div#orderDetails {
+	padding: 30px;
+	margin-bottom: 30px;
+}
+
+.navbar-inverse {
+	border-color: white;
+	background-image: url('/images/gradient_header.png');
+    background-repeat: repeat-x;
+	
+}
+
+.nav {
+	margin-top: 5px;
+	/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+}
+
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only"> Toggle navigation </span> <span
+						class="icon-bar"> </span> <span class="icon-bar"> </span> <span
+						class="icon-bar"> </span>
+				</button>
+				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+				<a class="navbar-brand logo-nav" href="index.html"> <img
+					src="http://besttransportation-ee.hudsonltd.net/images/site/general_ontime.jpg" class=""
+					style="width: 100px; height: 50px;">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav navbar-right" id="loginmenu">
+					<li><a href="#" data-toggle="modal" data-target="#myModal">How
+							it Works?</a></li>
+					<li><button type="button" class="btn btn-primary">
+							<a href="/restaurantui.html">Restaurants</a>
+						</button>
+					<li><a href="/profile.html">Create Account</a></li>
+
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+	<div class="container bg">
+
+		<div class="row">
+
+			<div class="col-lg-4 col-xs-6 col-sm-6" id="restaurantImg">
+				
+				<img
+					src="http://s3-media4.fl.yelpcdn.com/bphoto/1yD3yCiQ0rmtylubzQ1_3g/l.jpg" style="width: 150px; height:120px;margin:5px;">
+				
+			</div>
+
+
+
+			<div class="col-lg-8 col-xs-6 col-sm-6" id="restaurantDetails">
+
+				
+
+			<div class="col-lg-4">
+				<h3>Himalayan Kitchen</h3>
+				<h4>SFO</h4>
+				<h5>San Jose </h5>
+				
+
+			</div>
+
+			<div class="col-lg-4">
+
+			<div class="col-lg-6">
+				<h4>11 AM</h4>
+			</div>
+
+			<div class="col-lg-6">
+			<h4>12 PM</h4>
+			</div>
+			</div>
+			<div class="col-lg-4">				
+				<h4>Himalayan/Nepalese, Indian restaurant</h4>
+			</div>			
+			
+			</div>
+		</div>
+	</div>
+
+	<div class="container bg">
+
+		<div class="row">
+
+			<div class="col-lg-8 col-xs-12" id="foodSelector">
+
+				<!-- Nav tabs -->
+				
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+
+					<div class="tab-pane active col-lg-12 col-xs-12" id="home">
+					<ul class="list">					
+					<li class="simpleCart_shelfItem text-left">
+					<div class="thumbnail col-lg-2 col-xs-6">
+     					 <div id="mondayimg" >
+    					  <img src="http://s3-media4.fl.yelpcdn.com/bphoto/1yD3yCiQ0rmtylubzQ1_3g/l.jpg" class="img-responsive" alt="Responsive image">
+     					 </div>
+   					</div>
+					 <p class="col-lg-4 col-xs-6"><span class="item_name">item 1</span></p>
+					<p class="col-lg-1 col-xs-4"><span class="item_price">120</span></p>
+					<p class="col-lg-1 col-xs-4">
+					<input type="text" name="item" disabled class="item_quantity" value="1" style="width: 30px; border-radius: 3px; margin-left: 10px;"/></p>
+					<p class="col-lg-1 col-xs-4">
+					<input type="button" class="btn btn-primary active" value="Add" onclick="simpleCart.add('name=Himalayan Kitchen', 'price=120','quantity=1','id=1');"/></p>
+					</li>
+					
+					
+					
+					</ul>
+				
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-lg-4 col-xs-12" id="orderDetails">
+
+						<h2 style="color: #000;">Order Details</h2>
+						<div class="simpleCart_items"></div>
+						<br>
+						<hr>
+						<div class="row">
+
+							<span class="col-lg-4 col-xs-4">Delivery: </span> <span
+								class="col-lg-2 col-xs-4"></span> <span
+								class="simpleCart_shippingCost col-lg-6 col-xs-4"></span> <br />
+
+							<span class="col-lg-4 col-xs-4">Total</span> <span
+								class="simpleCart_quantity col-lg-2 col-xs-4"></span> <span
+								class="simpleCart_total col-lg-6 col-xs-4"></span> <br />
+						   </div>
+					
+						<br>
+						<div class="row">
+							<a href="javascript:;" class="simpleCart_empty col-lg-6"><button
+									type="button" class="btn btn-default">Empty Cart</button></a>
+						</div>
+						<br>
+
+						<div class="row" id="checkoutsection">
+
+							<a href="checkout.html"><button type="submit"
+									class="btn btn-primary btn-lg active col-lg-12 col-xs-12"
+									id="checkoutbutton">Checkout</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="modal fade" id="myModal" tabindex="-10000">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+
+						<div class="modal-body">
+
+							<img src="" class="img-responsive">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 text-center bg">
+					<div class="col-lg-4 col-xs-12 col-sm-12" style="margin-top: 5%">
+						<ul class="list-inline">
+							<li><a href="#"></i></a></li>
+							<li><i class="#"></i></li>
+
+						</ul>
+						<p>Copyright © Company 2014</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$('#myTab a').click(function(e) {
+			e.preventDefault();
+			console.log('test');
+			$(this).tab('show');
+		});
+	</script>
+
+	<script>
+		var delete_cookie = function(name) {
+			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		};
+
+		var loggedin = getCookie('esfuuid');
+		console.log('Logged in: ' + loggedin);
+		if (loggedin != null) {
+			$('#loginmenu').append(
+					'<li><a href="" id="logout">Logout</a></li>');
+
+		} else {
+
+			$('#loginmenu').append('<li><a href="">Login</a></li>');
+
+		}
+
+		$('a[href="/index.html"]').click(function() {
+			delete_cookie('esfuuid');
+			$('#loginmenu').append('<li><a href="">Login</a></li>');
+		});
+	</script>
+
+
+</body>
+
+</html>

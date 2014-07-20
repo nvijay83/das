@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Online Delivery</title>
+
+<!-- <!-- Bootstrap core CSS -->
+<link href="css/bootstrap_v1.css" rel="stylesheet">
+
+<!-- 
+<link href="css/bootstrap.min_v1.css" rel="stylesheet">
+ -->
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+
+
+
+<style>
+.bg {
+	border-radius: 15px;
+	background-color: rgba(39, 63, 43, 0.4);
+	margin-bottom: 10%;
+}
+
+h4 {
+	overflow: hidden;
+}
+
+.carousel-control {
+	padding-top: 10%;
+	width: 5%;
+}
+
+.cslpic {
+	width: 126px;
+	height: 90px;
+}
+
+form#searchForm {
+	margin-bottom: 20px;
+}
+
+h1 {
+	color: white;
+	background-color: rgba(39, 63, 43, 0.4);
+}
+
+footer {
+	border-radius: 15px;
+}
+
+div#search {
+	border-style: solid;
+	border-width: 8px;
+	border-color: #526907;
+	border-radius: 15px;
+	color: white;
+	background: white;
+	color: white;
+}
+
+label {
+	font-size: 30px;
+	color: #526907;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: green;
+}
+
+.navbar-inverse {
+	border-color: white;
+/* 	background-image: url('/images/header-green-white.jpg'); */
+    background-repeat: repeat-x;
+	
+}
+
+.order {
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.nav {
+	margin-top: 5px;
+	/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+}
+
+
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary
+	{
+	color: #ffffff;
+	background-color: #526907;
+	border-color: #FFFFFF;
+}
+
+.ui-autocomplete {
+	max-height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#banner.container {
+     background-image:url('images/banner.jpg');
+     background-repeat:no-repeat;
+     background-size:cover;
+     background-position:center;
+     border: 2px solid #526907;
+     height:300px;
+}
+
+</style>
+
+<script>
+	function getCookie(c_name) {
+		var c_value = document.cookie;
+		var c_start = c_value.indexOf(" " + c_name + "=");
+		if (c_start == -1) {
+			c_start = c_value.indexOf(c_name + "=");
+		}
+		if (c_start == -1) {
+			c_value = null;
+		} else {
+			c_start = c_value.indexOf("=", c_start) + 1;
+			var c_end = c_value.indexOf(";", c_start);
+			if (c_end == -1) {
+				c_end = c_value.length;
+			}
+			c_value = unescape(c_value.substring(c_start, c_end));
+		}
+		return c_value;
+	}
+</script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only"> Toggle navigation </span> <span
+						class="icon-bar"> </span> <span class="icon-bar"> </span> <span
+						class="icon-bar"> </span>
+				</button>
+				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+				<a class="navbar-brand logo-nav" href="index.html"> <img
+					src="http://besttransportation-ee.hudsonltd.net/images/site/general_ontime.jpg" class=""
+					style="width: 100px; height: 50px;"> 
+				</a>
+				
+			</div>
+            
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+				<ul class="nav navbar-nav navbar-right" id="loginmenu">
+					<li><a href="#" data-toggle="modal" data-target="#myModal">How
+							it Works?</a></li>
+					<li><button type="button" class="btn btn-primary">
+							<a href="/restaurantui.html">Restaurants</a>
+						</button>
+					<li><a href="#">Create Account</a></li>
+
+
+				</ul>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+    <div class="col-xs-12 text-center" id="search">
+
+				<form role="form" id="searchForm">
+
+					<fieldset>
+						<br>
+						<div class="form-group">
+						<label for="searchRestaurant">Ontime Delivery
+							</label> 
+						</div>
+
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									Select Business <span class="caret"></span>
+								</button>
+								
+								<ul class="dropdown-menu">
+									<li><a href="#">Restaurants</a></li>
+									<li><a href="#">Machineries</a></li>
+									<li><a href="#">All Business</a></li>
+								</ul>
+							</div>
+							<!-- /btn-group -->
+							<input type="text" class="form-control" id="searchRestaurant">
+							<input type="hidden" id="restaurantuuid" name="restaurantuuid"
+								value="" /> <input type="hidden" id="restaurantname"
+								name="restaurantname" value="" /> <input type="hidden"
+								id="restaurantregion" name="restaurantregion" value="" />
+
+						</div>
+						<!-- /input-group -->
+					</fieldset>
+
+					<br>
+					<br>
+				</form>
+
+			</div>
+
+<br>
+<br>
+
+	<div class="container">
+	<br>
+	<br>
+		<div class="col-lg-12">
+			<div id="myCarousel" class="carousel slide">
+
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<div class="row">
+							<div class="col-lg-2 col-xs-3">
+								<a
+									href="order_v1.html?restaurantuuid=1&restaurantname=Himalayan Kitchen&restaurantregion=Mountainview"><img
+									src="http://s3-media4.fl.yelpcdn.com/bphoto/1yD3yCiQ0rmtylubzQ1_3g/l.jpg" alt="Image"
+									class="cslpic img-responsive"></a>
+							</div>
+							<div class="col-lg-2 col-xs-3">
+								<a
+									href="order_v1.html?restaurantuuid=ad45f90a-8b84-11e3-ae4d-d231feb1dc81&restaurantname=HotSpot&restaurantregion=Kaloor"><img
+									src="images/home_slider_img2.jpg" alt="Image"
+									class="cslpic img-responsive"></a>
+							</div>
+		
+							
+						</div>
+						<!--/row-->
+					</div>
+					
+
+
+					
+				<!--/carousel-inner-->
+				<a class="left carousel-control" href="#myCarousel"
+					data-slide="prev"><span
+					class="glyphicon glyphicon-chevron-left"></span></a> <a
+					class="right carousel-control" href="#myCarousel" data-slide="next"><span
+					class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+			<!--/myCarousel-->
+		</div>
+		<!--/well-->
+	</div>
+	</div>
+	<br>
+<br>
+	<br>
+	<div class="container">
+
+		<div class="row">
+
+			<div class="modal fade" id="myModal" tabindex="-10000">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+
+						<div class="modal-body">
+
+							<img src="images/" class="img-responsive">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<hr>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+						<h4>Ontime Delivery Regions</h4>
+						<iframe frameborder=1 style='width:95%;height:300px' src='maps.html'> </iframe>
+					    <h4>About Ontime </h4>
+					    <p>	
+							Online food delivery service. Our delivery crowd source deliver to your doorstep in any of our delivery regions.
+						</p>
+				
+					<p>Copyright © Company 2014</p>
+					</div>
+				</div>	
+	</footer>
+
+
+	<!-- /.container -->
+
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.10.0/jquery.validate.min.js"></script>
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+	<script>
+		var restUuid = '';
+		var selectedRestaurant = '';
+		var restRegsion = '';
+
+		$(document)
+				.ready(
+						function() {
+
+							$('#searchForm')[0].reset();
+
+							getRestaurants();
+
+							$(".dropdown-menu li a")
+									.click(
+											function() {
+
+												var selectedRestaurant = $(this)
+														.text();
+
+												$(this)
+														.parents(
+																'.input-group-btn')
+														.find(
+																'.dropdown-toggle')
+														.html(
+																selectedRestaurant
+																		+ ' <span class="caret"></span>');
+
+												var jqxhr = $
+														.getJSON(
+																"http://1.easysmartfood.appspot.com/restaurant?"
+																		+ selectedRestaurant,
+																function() {
+																
+																	
+																})
+														.done(
+																function() {
+																
+																	var restArr = jqxhr.responseJSON;
+																	var restName = [];
+																	var restMapping = {};
+																	for ( var k = 0; k < restArr.length; k++) {
+
+																		restName[k] = restArr[k].name
+																				+ '    --     '
+																				+ restArr[k].region;
+																	
+																		restMapping[restName[k]] = restArr[k].uuid
+																				+ '|'
+																				+ restArr[k].name
+																				+ '|'
+																				+ restArr[k].region;
+
+																	}
+
+																	$(
+																			'#searchRestaurant')
+																			.autocomplete(
+																					{
+																						source : restName,
+																						select : function(
+																								event,
+																								ui) {
+
+																							var restaurantVals = restMapping[ui.item.value];
+
+																							var values = restaurantVals
+																									.split('|');
+
+																							var restUuid = values[0];
+																							var restName = values[1];
+																							var region = values[2];
+
+																							$(
+																									'#restaurantuuid')
+																									.val(
+																											restUuid);
+
+																							$(
+																									'#restaurantname')
+																									.val(
+																											restName);
+
+																							$(
+																									'#restaurantregion')
+																									.val(
+																											region);
+
+																						}
+																					});
+
+																})
+														.fail(
+																function() {
+
+																	console
+																			.log("error");
+																})
+														.always(
+																function() {
+																	console
+																			.log("complete");
+																});
+
+											});
+
+						});
+
+		$('#searchForm').validate({
+
+			submitHandler : function(form) {
+
+				search();
+			}
+
+		});
+
+		function search() {
+			var restaurant = $('#searchRestaurant').val();
+			if (restaurant == '') {
+
+				window.location = 'http://www.easysmartfood.co.in/restaurantui.html';
+
+			} else {
+
+				var id = $('#restaurantuuid').val();
+				var name = $('#restaurantname').val();
+				var region = $('#restaurantregion').val();
+				window.location = '/order_v1.html?restaurantuuid='
+						+ id
+						+ '&restaurantname='
+						+ name
+						+ '&restaurantregion='
+						+ region;
+
+			}
+
+		}
+
+		function getRestaurants() {
+
+			var selectedRestaurant = $(this).text();
+			console.log(selectedRestaurant);
+			$(this).parents('.input-group-btn').find('.dropdown-toggle').html(
+					selectedRestaurant + ' <span class="caret"></span>');
+
+			var jqxhr = $
+					.getJSON(
+							"http://1.easysmartfood.appspot.com/restaurant?"
+									+ selectedRestaurant, function() {
+							})
+					.done(
+							function() {
+
+								var restArr = jqxhr.responseJSON;
+								var restName = [];
+								var restMapping = {};
+								for ( var k = 0; k < restArr.length; k++) {
+
+									restName[k] = restArr[k].name
+											+ '    --     ' + restArr[k].region;
+									console.log(restName[k]);
+									restMapping[restName[k]] = restArr[k].uuid
+											+ '|' + restArr[k].name + '|'
+											+ restArr[k].region;
+
+								}
+
+								$('#searchRestaurant')
+										.autocomplete(
+												{
+													source : restName,
+													select : function(event, ui) {
+
+														var restaurantVals = restMapping[ui.item.value];
+
+														var values = restaurantVals
+																.split('|');
+
+														var restUuid = values[0];
+														var restName = values[1];
+														var region = values[2];
+
+														$('#restaurantuuid')
+																.val(restUuid);
+
+														$('#restaurantname')
+																.val(restName);
+
+														$('#restaurantregion')
+																.val(region);
+
+													}
+												});
+
+							}).fail(function() {
+
+						console.log("error");
+					}).always(function() {
+					});
+
+		}
+	</script>
+
+	<script>
+		var delete_cookie = function(name) {
+			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		};
+
+		var loggedin = getCookie('esfuuid');
+
+		if (loggedin != null) {
+			$('#loginmenu').append(
+					'<li><a href="/index.html" id="logout">Logout</a></li>');
+
+		} else {
+
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+
+		}
+
+		$('a[href="/index.html"]').click(function() {
+			delete_cookie('esfuuid');
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+		});
+	</script>
+
+	
+</body>
+
+</html>

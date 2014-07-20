@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Ontime Food Delivery</title>
+
+
+
+<!-- Bootstrap core CSS -->
+<!--  <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<!-- <!-- Bootstrap core CSS -->
+<link href="css/bootstrap_v1.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style id="holderjs-style" type="text/css"></style>
+
+
+<style>
+body {
+	background: url('');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.navbar-inverse {
+	background-color: #ffffff;
+	border-color: #080808;
+}
+
+h6,.h6 {
+	color: #66CD00;
+}
+
+h2,.h2 {
+	color: #526907;
+}
+
+.glyphicon-lg {
+	font-size: 3em
+}
+
+.blockquote-box {
+	border-right: 5px solid #E6E6E6;
+	margin-bottom: 25px
+}
+
+.blockquote-box .square {
+	width: 100px;
+	min-height: 50px;
+	margin-right: 22px;
+	text-align: center !important;
+	background-color: #E6E6E6;
+	padding: 20px 0
+}
+
+.blockquote-box.blockquote-primary {
+	border-color: #357EBD
+}
+
+.blockquote-box.blockquote-primary .square {
+	background-color: #428BCA;
+	color: #FFF
+}
+
+.blockquote-box.blockquote-success {
+	border-color: #4CAE4C
+}
+
+.blockquote-box.blockquote-success .square {
+	background-color: #5CB85C;
+	color: #FFF
+}
+
+.blockquote-box.blockquote-info {
+	border-color: #46B8DA
+}
+
+.blockquote-box.blockquote-info .square {
+	background-color: #5BC0DE;
+	color: #FFF
+}
+
+.blockquote-box.blockquote-warning {
+	border-color: #EEA236
+}
+
+.blockquote-box.blockquote-warning .square {
+	background-color: #F0AD4E;
+	color: #FFF
+}
+
+.blockquote-box.blockquote-danger {
+	border-color: #D43F3A
+}
+
+.blockquote-box.blockquote-danger .square {
+	background-color: #D9534F;
+	color: #FFF
+}
+</style>
+
+<style>
+h4 {
+	color: white;
+}
+
+.btn-default,.btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary
+	{
+	color: #ffffff;
+	background-color: #526907;
+	border-color: #FFFFFF;
+}
+
+span {
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 20px;
+	color: #000;
+}
+
+.simpleCart_empty {
+	color: rgb(85, 3, 3);
+	font-size: 20px;
+}
+
+.itemName {
+	padding: 5px;
+	margin: 5px;
+	margin-bottom: 5px;
+	font-size: 20px;
+}
+
+.item_name {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+
+.simpleCart_shelfItem {
+	margin-bottom: 5px;
+}
+
+.itemPrice {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+.itemQuantity {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+.itemTotal {
+	margin-bottom: 5px;
+	color: #000;
+}
+
+a,a:hover {
+	color: black;
+}
+
+a,a {
+	color: #428bca;
+	text-decoration: none;
+}
+
+.bg {
+	border-radius: 15px;
+	background-color: rgba(39, 63, 43, 0.4);
+	margin-bottom: 5%;
+}
+
+h4 {
+	overflow: hidden;
+	font-size: 1.0em;
+}
+
+.nav {
+	margin-top: -15px;
+	/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+}
+
+ul {
+	list-style-type: none;
+}
+
+.list {
+	background-color: #343434;
+}
+
+div#orderDetails {
+	padding: 30px;
+	margin-bottom: 30px;
+}
+
+ul>li {
+	margin: 25px;
+}
+
+.navbar-inverse {
+	border-color: white;
+	background-image: url('/images/gradient_header.png');
+	background-repeat: repeat-x;
+}
+</style>
+
+</head>
+
+<body style="">
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only"> Toggle navigation </span> <span
+						class="icon-bar"> </span> <span class="icon-bar"> </span> <span
+						class="icon-bar"> </span>
+				</button>
+				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+				<a class="navbar-brand logo-nav" href="index.html"> <img
+					src="images/FINAL_image1.png" class=""
+					style="width: 100px; height: 50px;">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" data-toggle="modal" data-target="#myModal">How
+							it Works?</a></li>
+					<li><button type="button" class="btn btn-primary">
+							<a href="/restaurantui.html">Restaurants</a>
+						</button>
+					<li><a href="/profile.html">Create Account</a></li>
+
+					<li><a href="/login.html">Login</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+
+		<!-- /.container -->
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h2>Choose Restaurant - All restaurants delivered in all covered
+				regions</h2>
+			<div class="col-md-6">
+				<div class="blockquote-box clearfix">
+					<div class="square pull-left">
+						<a
+							href="order_v1.html?restaurantuuid=1&restaurantname=Himalayan Kitchen&restaurantregion=Mountainview
+">
+							<img class="img-responsive"
+							src="http://s3-media4.fl.yelpcdn.com/bphoto/1yD3yCiQ0rmtylubzQ1_3g/l.jpg"
+							alt="" />
+						</a>
+					</div>
+					<h4>
+				<a href="order_v1.html?restaurantuuid=1&restaurantname=Himalayan Kitchen&restaurantregion=Mountainview">
+							Himalayan Kitchen - Himalayan/Nepalese, Indian restaurant </a>
+					</h4>
+					<p>
+					<h6>Mountain View</h6>
+					<h6>11:00 AM to 10:00 PM</h6>
+					</p>
+				</div>
+
+
+
+
+
+
+				<div class="blockquote-box blockquote-success clearfix">
+					<div class="square pull-left">
+						<a
+							href="http://www.easysmartfood.co.in/order_v1.html?restaurantuuid=953665ab-1397-4938-9fbb-0d17db80c002&restaurantname=Best%20Bakers%20Restaurant&restaurantregion=Edapally">
+							<img class="img-responsive"
+							src="https://lh4.googleusercontent.com/-JN4QoMF0GQg/Uy54QZZ0jWI/AAAAAAAAAGk/zR98jQFZlHQ/w733-h488-no/18.jpg"
+							alt="" />
+						</a>
+					</div>
+					<h4>
+						<a
+							href="http://www.easysmartfood.co.in/order_v1.html?restaurantuuid=953665ab-1397-4938-9fbb-0d17db80c002&restaurantname=Best%20Bakers%20Restaurant&restaurantregion=Edapally">
+							Best Bakers - Bakery restaurant </a>
+					</h4>
+					<p>
+					<h6>Edapally - Multi Cuisine</h6>
+					<h6>11:00 AM to 08:00 PM</h6>
+					</p>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+		<div class="blockquote-box blockquote-danger clearfix">
+			<div class="square pull-left">
+				<a
+					href="http://www.easysmartfood.co.in/order_v1.html?restaurantuuid=d1433b9e-7aeb-4c38-a680-46ba2feaffa2&restaurantname=K.R.Bakes%20Cakes&restaurantregion=Kaloor">
+					<img class="img-responsive"
+					src="https://lh4.googleusercontent.com/-nWPz06bYWCc/Uy54RycczUI/AAAAAAAAAHE/kTzrP3QvBXI/w176-h117-no/9.jpg"
+					alt="" />
+				</a>
+				<!--       <span class="glyphicon glyphicon-music glyphicon-lg"></span> -->
+			</div>
+			<h4>
+				<a
+					href="http://www.easysmartfood.co.in/order_v1.html?restaurantuuid=d1433b9e-7aeb-4c38-a680-46ba2feaffa2&restaurantname=K.R.Bakes%20Cakes&restaurantregion=Kaloor">
+					K.R.Bakes - Bakery restaurant </a>
+			</h4>
+			<p>
+			<h6>Palarivattom - Multi Cuisine</h6>
+			<h6>11:00 AM to 08:00 PM</h6>
+			</p>
+		</div>
+
+	</div>
+
+	</div>
+
+
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="modal fade" id="myModal" tabindex="-10000">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+
+						<div class="modal-body">
+
+							<img src="images/" alt="how it works" class="img-responsive">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!--  <script src="dist/js/docs.min.js"></script>
+ -->
+	<script>
+ 
+	function getCookie(c_name) {
+		var c_value = document.cookie;
+		var c_start = c_value.indexOf(" " + c_name + "=");
+		if (c_start == -1) {
+			c_start = c_value.indexOf(c_name + "=");
+		}
+		if (c_start == -1) {
+			c_value = null;
+		} else {
+			c_start = c_value.indexOf("=", c_start) + 1;
+			var c_end = c_value.indexOf(";", c_start);
+			if (c_end == -1) {
+				c_end = c_value.length;
+			}
+			c_value = unescape(c_value.substring(c_start, c_end));
+		}
+		return c_value;
+	}
+		var delete_cookie = function(name) {
+			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		};
+
+		var loggedin = getCookie('esfuuid');
+
+		if (loggedin != null) {
+			$('#loginmenu').append(
+					'<li><a href="/index.html" id="logout">Logout</a></li>');
+
+		} else {
+
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+
+		}
+
+		$('a[href="/index.html"]').click(function() {
+			delete_cookie('esfuuid');
+			$('#loginmenu').append('<li><a href="/login.html">Login</a></li>');
+		});
+	</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49982128-1', 'easysmartfood.co.in');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
