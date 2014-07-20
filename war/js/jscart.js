@@ -1142,7 +1142,7 @@ Number.prototype.withCommas = function() {
 	return y.reverse();
 };
 Number.prototype.toCurrency = function() {
-	return (arguments[0] ? arguments[0] : "Rs ") + this.withCommas();
+	return (arguments[0] ? arguments[0] : "$ ") + this.withCommas();
 };
 
 /*******************************************************************************

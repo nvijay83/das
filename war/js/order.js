@@ -73,7 +73,6 @@
 
 							
 							var restArr = jqxhr.responseJSON;
-
 							var source = $("#foodmenuTemplate").html();
 							var template = Handlebars.compile(source);
 							
@@ -183,8 +182,6 @@
 						}else{
 							
 							$('#checkoutbutton').text('Guest Checkout');
-							
-							
 							$('#checkoutsection').append('<a href="login.html" class="col-lg-12 col-xs-12" id="search"><h3 class="text-center">Login ?</h3></a>');
 							
 							

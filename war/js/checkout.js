@@ -97,10 +97,10 @@ function calculateDeliveryCost(restName, region) {
 				if (deliveryDtls.responseJSON.deliveryCost != '') {
 
 					$('.simpleCart_shippingCost').text(
-							'Rs ' + deliveryDtls.responseJSON.deliveryCost);
+							'$ ' + deliveryDtls.responseJSON.deliveryCost);
 				} else {
 
-					$('.simpleCart_shippingCost').text('Rs 10');
+					$('.simpleCart_shippingCost').text('$ 10');
 				}
 				
 
@@ -257,9 +257,9 @@ $(document)
 					var esfuserCookie = getCookie('esfuuid');
 					
 					//Initialize Delivery charge
-					$('.simpleCart_shippingCost').text('Rs 0');
+					$('.simpleCart_shippingCost').text('$ 0');
 					$('.simpleCart_shippingDistance').text('5 km');
-					$('.simpleCart_packingCost').text('Rs 20');
+					$('.simpleCart_packingCost').text('$ 20');
 					//Update Amounts
 					updateTotalAmt();
 					
@@ -280,7 +280,7 @@ $(document)
 										var amount = parseInt(totalStr);
 										if( amount < 300) 
 											{
-											 alert("Minimum order Amount is Rs 300. Please add fooditems to your order to meet the minimum Order amount");
+											 alert("Minimum order Amount is $ 300. Please add fooditems to your order to meet the minimum Order amount");
 									         return;
 											}
 
@@ -394,7 +394,7 @@ $(document)
 										var priceSummaryData = new PriceSummaryData(
 												totalStr, '0.0', '0',
 												deliveryCost, packageCostAmt, totalCost,
-												'Rs');
+												'$');
 
 										userResponse.foodComments = $(
 												'#foodcomments').val();

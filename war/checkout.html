@@ -189,7 +189,7 @@ a,a:hover {
 				</button>
 				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
 				<a class="navbar-brand logo-nav" href="index.html"> <img
-					src="images/FINAL_image1.png" class=""
+					src="http://besttransportation-ee.hudsonltd.net/images/site/general_ontime.jpg" class=""
 					style="width: 100px; height: 50px;">
 				</a>
 			</div>
@@ -215,8 +215,6 @@ a,a:hover {
 
 
 	<div class="container" id="confirmation">
-
-
 		<div class="row">
 
 			<h2 id="confirmationheader">Confirm your Order</h2>
@@ -246,7 +244,7 @@ a,a:hover {
 		<div class="row">
 
 			<h3 id="foodconfirmationheader">Deliver Food to below Address:</h3>
-
+			
 		</div>
 	</div>
 
@@ -254,22 +252,24 @@ a,a:hover {
 	<div class="container bg">
 
 		<div class="row">
+		
+			
+			<div class="col-lg-4 col-xs-12" id="shipmentleft"><h4>Walter White</h4><h4>425 Broadway Avenue'
+				</h4><h4>NestDSV</h4>
+				<h5>Dave@gmail.com</h5><h5>3456784444</h5>
+			</div>
 
 			<div class="col-lg-8 col-xs-12 text-center" id="shipmentdetails">
-
 				<script id="shiptotemplate" type="text/x-handlebars-template">
-
 					<div class="col-lg-6 col-xs-12" style="padding:50px;">
-
 						<h4>{{address1}}</h4>
 						<h4>{{address2}}</h4>
 						<h4>{{city}}</h4>
 						<h4>{{landmark}}</h4>
-
 					</div>
-
-
 					<div class="col-lg-4 col-xs-12" style="padding:50px;">
+
+				
 
 					<h5>{{email}}</h5>
 					<h5>{{contactnumber}}</h5>
@@ -295,13 +295,8 @@ a,a:hover {
 				
 				<br /> <br> <a href="javascript:;" class="simpleCart_empty">Empty
 					Cart</a><br>
-
 				<hr>
-
-
 			</div>
-
-
 		</div>
 	</div>
 
@@ -311,16 +306,6 @@ a,a:hover {
 	<div class="container">
 
 
-		<div class="col-lg-6">
-			<div class="col-lg-offset-4 col-lg-8 col-xs-12">
-
-				<button type="submit" id="editaddressbutton"
-					class="btn btn-primary btn-lg active col-lg-12 col-xs-12 bg"
-					id="search">Change Delivery Address</button>
-
-			</div>
-
-		</div>
 
 		<div class="col-lg-6">
 
@@ -375,9 +360,53 @@ a,a:hover {
 
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/checkout.js"></script>
 
 	<script>
+	
+	$( "#orderbutton" ).click(function() {
+		  alert( "Handler for .click() called." );
+		  
+		  $.ajax({  
+              type: "GET",  
+              url: "http://lit-ravine-7565.herokuapp.com/date=",
+              dataType: "json",  
+              success: function(data){  
+                
+          //success response
+            
+              },  
+              error: function(e){  
+                //alert('Error121212: ' + e);  
+              }  
+            });
+		  
+		 
+		  
+		  var afterUpdateHtml = '<div class="col-lg-6 col-xs-12" style="padding:50px;"><h4>'
+				+'Walter White'
+				+ '</h4><h4>'
+				+ '425 Broadway Avenue'
+				+ '</h4><h4>'
+				+ 'NestDSV'
+				+ '</h4><h5>'
+				+ 'Dave@gmail.com'
+				+ '</h5><h5>'
+				+ '3456784444'
+				+ '</h5></div>';
+				  
+		$('div#shipmentdetails').html(afterUpdateHtml);
+		$('#confirmationheader').text('Your Order has been Successfully Created. Order Number : 1');
+		$('#foodconfirmationheader').text('Food Will be Delivered To Below address:');
+		$('#checkoutcontainer').html('');
+		$('#summary').html('');
+		$('#orderbutton').remove();
+		$('#shipmentleft').remove();
+		
+
+		
+		  
+		});
+	
 		var delete_cookie = function(name) {
 			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 		};
